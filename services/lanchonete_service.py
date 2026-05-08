@@ -139,6 +139,30 @@ class LanchoneteService:
             Pedido encontrado ou None.
         """
         return db.pedidos_por_codigo.get(cod_pedido)
+    
+    def adicionar_observacao(
+        self,
+        cod_pedido: int,
+        observacao: str
+    ) -> bool:
+
+        pedido = db.pedidos_por_codigo.get(cod_pedido)
+
+        if pedido is None:
+            return False
+
+        return pedido.adicionar_observacao(observacao)
+    
+    def buscar_observacao_pedido(
+        self,
+        cod_pedido: int
+    ):
+        pedido = db.pedidos_por_codigo.get(cod_pedido)
+
+        if pedido is None:
+            return None
+
+        return pedido
 
 
 service = LanchoneteService()

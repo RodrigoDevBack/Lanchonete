@@ -23,3 +23,11 @@ class PedidoOut(BaseModel):
     cpf: str
     esta_entregue: bool
     produtos: List[int]
+    
+class ObservacaoInput(BaseModel):
+    observacao: str
+
+
+class ObservacaoOut(BaseModel):
+    codigo: int
+    observacao: str
